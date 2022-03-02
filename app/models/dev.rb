@@ -5,20 +5,10 @@ class Dev < ActiveRecord::Base
 
     def received_one?(item_name)
         # return false unless 
-        #Freebies.all.where(item_name: item_name)
+        Freebie.all.find_by(dev_id: self.id).item_name == item_name
     end
- 
-    # def self.freebies
-    #      # binding.pry
-    #       self.freebies.all
-    # end
     
-
     def give_away(dev, freebie)
-        # dev = Dev.first
-        # freebie = Freebie.first
-
-
 
         found = Dev.find(freebie.id)
         if(found.id)
